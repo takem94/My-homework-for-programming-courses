@@ -1,0 +1,110 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+ul > li {
+    display: inline;
+}
+
+#menu1 {
+    background: #e732ff; /* Old browsers */
+    background: -moz-linear-gradient(top, #e732ff 0%, #4f51ff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e732ff 0%,#4f51ff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #e732ff 0%,#4f51ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e732ff', endColorstr='#4f51ff',GradientType=0 ); /* IE6-9 */
+    padding: 5px 0;
+    font-family: Arial;
+    font-style: italic;
+}
+
+.menu {
+    display: flex;
+    margin: 0 auto;
+    max-width: 960px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.menu > .menu__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+    padding: 0 15px;
+    border-right: solid 1px white;
+}
+
+.menu > .menu__item a:hover {
+    background: rgba(255,255,255, 0.7);
+    border-radius: 50px;
+    color: #ff84f3;
+    transition: background-color 0.8s, border-radius 1.1s,  color 1.2s;
+}
+
+.menu__item:last-child {
+    border-right: none;
+}
+
+.menu > .menu__item a {
+    width: 100%;
+    height: 100%;
+    line-height: 35px;
+    white-space: nowrap;
+    display: block;
+    text-align: center;
+    padding: 0 5px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu .menu__item > .menu__submenu {
+    background: -moz-linear-gradient(top, #e732ff 0%, #4f51ff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e732ff 0%,#4f51ff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to top, #e732ff 0%,#4f51ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e732ff', endColorstr='#4f51ff',GradientType=0 ); /* IE6-9 */
+    border-radius: 25px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    top: 55px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s, visibility 1s;
+    padding: 10px;
+}
+
+.menu .menu__item > .menu__submenu > .menu__item {
+    position: relative;
+    display: inherit;
+}
+.menu .menu__item > .menu__submenu > .menu__item a {
+    padding: 0 15px;
+}
+
+.menu__item_slider a:hover + .menu__submenu{
+    opacity: 1;
+    visibility:visible;
+}
+
+.menu .menu__item > .menu__submenu:hover {
+    opacity: 1;
+    visibility:visible;
+}
+
+.menu .menu__item > .menu__submenu > .menu__item > .menu__submenu {
+    background: linear-gradient(to bottom, #e732ff 0%,#4f51ff 100%);
+    right: 220px;
+    top: -5px;
+}

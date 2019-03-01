@@ -1,0 +1,242 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Arial;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, button:focus {
+    outline: none;
+}
+
+.container {
+    position: relative;
+    max-width: 960px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    background: #d3d3d3;
+    padding-top: 10px;
+    border-radius: 25px;
+}
+
+.tabs {
+    padding-top: 25px;
+}
+
+.tabs__header-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.tabs__header-list {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+    height: 45px;
+}
+
+.tabs__header-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 10px 0 15px;
+    background: #afafaf;
+    color: #5d5d5d;
+    width: 209px;
+    border-radius: 20px;
+    height: 40px;
+    margin-right: 11px;
+    margin-bottom: auto;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-radius .3s, height .3s, width .3s, background-color .3s;
+}
+
+.tabs__header-item_active {
+    border-radius: 20px 20px 0 0;
+    background: orange;
+    color: white;
+    height: 100%;
+}
+
+.tabs__header-title {
+    position: relative;
+}
+
+.tabs__header-title h2 {
+    position: relative;
+    font-weight: normal;
+    font-size: 16px;
+    user-select: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tabs__header-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    text-align: center;
+    padding: 0;
+    line-height: 18px;
+    border-radius: 250px;
+    color: grey;
+    border: none;
+    background: rgba(255,255,255, 0.8);
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background-color 0.3s, color .3s;
+}
+
+.tabs__header-close:hover {
+    color: white;
+    background: rgba(255, 1, 0, 0.3);
+}
+
+.tabs__header-btn {
+    background: rgba(235, 235, 235, 0.6);
+    color: grey;
+    display: block;
+    border-radius: 250px;
+    border: none;
+    height: 35px;
+    width: 35px;
+    padding-left: 7px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 5px;
+}
+
+.tabs__header-btn:hover {
+    background: rgba(235, 235, 235, 0.9);
+}
+
+.tabs__body-list {
+    width: 100%;
+}
+
+.tabs__body-item {
+    display: flex;
+    background: orange;
+    width: 100%;
+    color: white;
+    padding: 45px 15% 60px;
+    border-radius: 20px;
+}
+
+.tab-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+.tab-form__wrapper {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.tab-form__title {
+    display: block;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+.tab-form__input {
+    border: none;
+    width: 100%;
+    border-radius: 25px;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.tab-form__text {
+    width: 100%;
+    border-radius: 25px;
+    resize: vertical;
+    min-height: 300px;
+    padding: 20px;
+    border: none;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+.container_vertical {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}
+
+.container_vertical > .tabs__header-wrapper {
+    width: auto;
+    flex-direction: column;
+}
+
+.container_vertical > .tabs__header-wrapper > .tabs__header-list {
+    flex-direction: column;
+    height: 100%;
+}
+
+.container_vertical .tabs__header-item {
+    margin-right: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+}
+
+.container_vertical .tabs__header-item_active {
+    height: 45px;
+    width: 220px;
+    border-radius: 25px 0 0 25px;
+}
+
+.tabs__change-direction {
+    position: absolute;
+    right: -45px;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    border: none;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .3s, background-color .3s;
+}
+
+.tabs__change-direction:hover {
+    background: #e6e6e6;
+    transform: scale(1.1);
+}
+
+.tabs__change-direction::after {
+    position: absolute;
+    content: '';
+    background: #fff;
+    height: 3px;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    transition: transfrom .3s;
+}
+
+.tabs__change-direction_rotate::after {
+    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}

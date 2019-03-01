@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+    <script>
+        //Функция-конструктор
+        //Родитель
+        function User(name, age, email) {
+            this.age = age;
+            this.name = name;
+            this.email = email;
+            this.isFirstEmail = true;
+
+            this.spaceUser = 0; //Пройдено всего
+
+//            this.go = function (space) {
+//                this.spaceUser += space;
+//              console.log('Пройдено сейчас:', space, 'м.');
+//              console.log('Пройдено всего:', this.spaceUser, 'м.');
+//            };
+        }
+
+        User.prototype.go = function (space) {
+            this.spaceUser += space;
+            console.log('Пройдено сейчас:', space, 'м.');
+            console.log('Пройдено всего:', this.spaceUser, 'м.');
+        };
+
+        //Дочерний элемент
+        function UserDeveloper(name, age, email, salary, department) {
+            User.call(this, name, age, email); //Функциональное наследование
+            this.salary = salary;
+            this.department = department;
+        }
+
+        //Прототипное наследование
+        UserDeveloper.prototype = Object.create(User.prototype);
+        UserDeveloper.prototype.constructor = UserDeveloper; //Возвращаем конструктор на место
+
+        UserDeveloper.prototype.go = function (space) {
+          console.log(space, 'Перекрытый метод', ' UserDeveloper.prototype.go()');
+        };
+
+        var user1 = new User('Anna', 27, '111@222.ru');
+        console.log(user1);
+        user1.go(500);
+        user1.go(600);
+        user1.go(200);
+
+        console.log('---user2---');
+        var user2 = new UserDeveloper('Olga', 25, '333@43235.local', 50000, 'FrontEnd');
+        console.log(user2);
+        user2.go(300);
+        user2.go(400);
+
+        var user3 = new UserDeveloper('Oleg', 25, '333@43235.local', 50000, 'FrontEnd');
+        console.log(user2, user3);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

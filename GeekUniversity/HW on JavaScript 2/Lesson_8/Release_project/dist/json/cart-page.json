@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Mango People T-shirt",
+    "price": "150",
+    "img": "img/basket/basket-good-1.jpg",
+    "id": "125",
+    "rating": "3.5",
+    "amount": "2",
+	"color": "Red",
+	"size": "XXL"	
+  },
+  {
+    "title": "Mango People T-shirt",
+    "price": "150",
+    "img": "img/basket/basket-good-2.jpg",
+    "id": "131",
+    "rating": "3.5",
+    "amount": "2",
+	"color": "Red",
+	"size": "XXL"	
+  },
+    {
+    "title": "Mango People T-shirt",
+    "price": "150",
+    "img": "img/basket/basket-good-3.jpg",
+    "id": "156",
+    "rating": "3.5",
+    "amount": "2",
+	"color": "Red",
+	"size": "XXL"	
+  }
+]

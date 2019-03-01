@@ -1,0 +1,142 @@
+.header-responsive {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+
+  &__btn {
+    width: 75px;
+    height: 75px;
+  }
+
+  .header {
+    &-search {
+      display: flex;
+      &__logo {
+        text-align: center;
+        line-height: 100px;
+
+        img {
+          display: inline-block;
+          width: 44px;
+          height: 38px;
+        }
+      }
+
+      &__btn {
+        font-size: 27px;
+        background-color: transparent;
+        border: none;
+        color: #555555;
+        cursor: pointer;
+        text-align: center;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+    }
+
+    &-panel {
+      display: flex;
+      align-items: center;
+
+      &__menu-btn,
+      &__profile-btn,
+      &__cart-btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &__menu {
+        &-btn {
+          position: relative;
+          &-logo {
+            display: block;
+            background-color: #595959;
+            height: 3px;
+            width: 32px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              display: block;
+              width: 32px;
+              height: 3px;
+              background-color: #595959;
+            }
+
+            &::before {
+              top: -7px;
+              left: 0;
+            }
+
+            &::after {
+              top: 7px;
+              left: 0;
+            }
+          }
+
+        }
+      }
+
+      &__profile {
+        &-btn {
+
+          &-logo {
+            display: block;
+            margin: 0 auto;
+            width: 29px;
+            height: 29px;
+            background: url('../img/interface/user-icon.png') 100% 100% no-repeat;
+
+          }
+        }
+      }
+
+      &__cart {
+
+        &-btn {
+          align-items: center;
+          position: relative;
+
+          &-logo {
+            position: relative;
+            display: block;
+            background: url(../img/interface/cart-white.png) 100% 100% no-repeat;
+            background-size: cover;
+            width: 32px;
+            height: 29px;
+            margin: 0 auto;
+          }
+
+          &-count {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: $color-pink;
+            border-radius: 20px;
+            color: white;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .g-btn_black-bg {
+    background-color: #222;
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang=ru>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Форма с проверкой</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="css/form_regexp.css">
+</head>
+<body>
+    <div class="registration">
+        <div class="container">
+            <div class="registration__title">
+                <h1>Форма с проверкой на ошибки</h1>
+            </div>
+            <form id="registryForm" action="#" class="registration-form">
+                <div class="registration-form__wrapper">
+                    <label for="userName" class="registration-form__title">ФИО:</label>
+                    <input name="userName" placeholder="Иванов Иван Иванович" id="userName" type="text" class="registration-form__input">
+                </div>
+
+                <div class="registration-form__wrapper">
+                    <label for="phoneNumber" class="registration-form__title">Номер телефона:</label>
+                    <input name="phoneNumber" placeholder="+7(000)000-0000" id="phoneNumber" type="text" class="registration-form__input">
+                </div>
+
+                <div class="registration-form__wrapper">
+                    <label for="userEmail" class="registration-form__title">Email:</label>
+                    <input name="userEmail" placeholder="example@site.com" id="userEmail" type="text" class="registration-form__input">
+                </div>
+
+                <div class="registration-form__wrapper">
+                    <label for="userBirth" class="registration-form__title">Дата рождения:</label>
+                    <input name="userBirth" autocomplete="off" placeholder="01.01.1970" id="userBirth" type="text" class="registration-form__input">
+                </div>
+
+                <div class="registration-form__wrapper">
+                    <label for="userCity" class="registration-form__title">Город:</label>
+
+                    <div class="registration-form__auto-complete-wrapp">
+                        <input name="userCity" autocomplete="off" placeholder="Москва" id="userCity" type="text" class="registration-form__input">
+                        <div class="registration-form__auto-complete">
+                            <ul class="registration-form__auto-complete-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="registration-form__wrapper registration-form__wrapper_msg">
+                    <label for="userMessage" class="registration-form__title">Ваш комментарий:</label>
+                    <textarea name="userMessage" placeholder="Введите текст..." id="userMessage" class="registration-form__input registration-form__input_text-area"></textarea>
+                </div>
+
+                <div class="registration-form__wrapper registration-form__wrapper_btn">
+                    <input name="btnSubmit" class="registration-form__btn" type="submit" value="Отправить">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="demoDialog" title="Не удалось отправить"></div>
+
+    <script src="js/Libraries/jquery-3.3.1.js"></script>
+    <script src="js/Libraries/jquery-ui.min.js"></script>
+    <script src="js/reg_exp_form.js"></script>
+</body>
+</html>

@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="css/slick.css">
+  <link rel="stylesheet" type="text/css" href="css/nouislider.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <title>Main page</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-s">
+      <div class="row-s align-center">
+        <a class="header-logo" href="#">
+          <div class="header-logo__img"><img src="./img/header/header-logo.png" alt="logo-type"></div>
+          <div class="header-logo__text">BRAN<span class="header-logo__text_bold-pink">D</span> </div>
+        </a>
+        <form action="#" class="search-form">
+          <div class="search-form__directory">
+            <label class="search-form__directory-label">
+              <select name="directory" class="search-form__directory-select">
+                <option value="Browse" class="search-form__directory-option" hidden>Browse</option>              
+              </select>                        
+            </label>
+            <div class="search-form__dropdown">
+              <div class="search-form__directory-wrapper">
+                <p class="search-form__directory-title">Woman</p>
+                <ul class="search-form__directory-list">
+                  <li class="search-form__directory-unit">Dresses</li>
+                  <li class="search-form__directory-unit">Tops</li>
+                  <li class="search-form__directory-unit">Sweaters/Knits</li>
+                  <li class="search-form__directory-unit">Blazers</li>
+                  <li class="search-form__directory-unit">Denim</li>
+                  <li class="search-form__directory-unit">Leggings/Pants</li>
+                  <li class="search-form__directory-unit">Skirts/Shorts</li>
+                  <li class="search-form__directory-unit">Accessories</li>
+                </ul>
+                <p class="search-form__directory-title">Man</p>
+                <ul class="search-form__directory-list">
+                  <li class="search-form__directory-unit">Tees/Tank tops</li>
+                  <li class="search-form__directory-unit">Shirts/Polos</li>
+                  <li class="search-form__directory-unit">Sweaters</li>
+                  <li class="search-form__directory-unit">Sweatshirts/Hoodies</li>
+                  <li class="search-form__directory-unit">Blazers</li>
+                  <li class="search-form__directory-unit">Jackets/vests</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <input type="text" class="search-form__field" placeholder="Search for Item...">
+          <label class="search-form__btn">
+            <input type="submit" class="search-form__btn-input" value="">
+          </label>
+        </form>
+        <div class="account-info">
+          <button class="account-info__cart-btn"><img src="img/header/header-cart.png" alt="cart"><span class="account-info__cart-counter">2</span></button>
+          <div class="cart">
+            <div class="cart__wrapper">
+              <div class="cart__product-list">
+                <div class="cart__product-elem">
+                  <div class="cart__product-preview"><a href="#"><img src="img/cart/cart-img-1.jpg" alt="preview"></a></div>
+                  <div class="cart__product-info">
+                    <a href="#" class="cart__product-title">Rebox zane</a>
+                    <div class="cart__product-rate">
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fas fa-star-half-alt"></span>
+                      <span class="far fa-star"></span>
+                    </div>
+                    <p class="cart__product-price"><span class="cart__product-amount">1</span> x <span class="span cart__product-price">$250</span></p>
+                  </div>
+                  <button class="cart__product-btn-del"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="cart__product-elem">
+                  <div class="cart__product-preview"><a href="#"><img src="img/cart/cart-img-2.jpg" alt="preview"></a></div>
+
+                  <div class="cart__product-info">
+                    <a href="#" class="cart__product-title">Rebox zane</a>
+                    <div class="cart__product-rate">
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fas fa-star-half-alt"></span>
+                      <span class="far fa-star"></span>
+                    </div>
+                    <p class="cart__product-price"><span class="cart__product-amount">1</span> x <span class="span cart__product-price">$250</span></p>
+                  </div>
+
+                  <button class="cart__product-btn-del"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="cart__price-info">
+                <span class="cart__price-title">Total</span>
+                <span class="cart__price-value">$500.00</span>
+              </div>
+              <a href="#" class="cart__btn">Checkout</a>
+              <a href="#" class="cart__btn cart__btn_gray">Go to cart</a>
+            </div>
+          </div>
+
+          <button class="account-info__acc-btn">My Account <i class="fas fa-caret-down"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <nav class="navigate">
+    <div class="container-s">
+      <ul class="navigate__list">
+        <li class="navigate__item"><a href="#">Home</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item navigate__item_active"><a href="#">Man</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item"><a href="#">Women</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item"><a href="#">Kids</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item"><a href="#">Accoseriese</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item"><a href="#">Featured</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navigate__item"><a href="#">Hot Deals</a>
+          <div class="navigate-menu">
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                  <li class="navigate-menu__link"><a href="#">Blazers</a></li>
+                  <li class="navigate-menu__link"><a href="#">Denim</a></li>
+                  <li class="navigate-menu__link"><a href="#">Leggings/Pants</a></li>
+                  <li class="navigate-menu__link"><a href="#">Skirts/Shorts</a></li>
+                  <li class="navigate-menu__link"><a href="#">Accessories</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigate-menu__column">
+              <div class="navigate-menu__wrapper">
+                <p class="navigate-menu__title">Women</p>
+                <ul class="navigate-menu__list">
+                  <li class="navigate-menu__link"><a href="#">Dresses</a></li>
+                  <li class="navigate-menu__link"><a href="#">Tops</a></li>
+                  <li class="navigate-menu__link"><a href="#">Sweaters/Knits</a></li>
+                  <li class="navigate-menu__link"><a href="#">Jackets/Coats</a></li>
+                </ul>
+              </div>
+              <div class="navigate-menu__wrapper">
+                <a href="#">
+                  <figure class="navigate-menu__img">
+                    <img src="img/navigate/nav-sale.jpg" alt="sale">
+                    <span class="navigate-menu__img-text">Super <br> Sale!</span>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="breadcrumb">
+    <div class="container-s">
+      <div class="row-s space-between align-center no-wrap">
+        <h3 class="breadcrumb__title">New Arrivals</h3>
+        <p class="breadcrumb__path">
+          <a class="breadcrumb__path-link " href="#">Home</a> /
+          <a class="breadcrumb__path-link " href="#">Men</a> /
+          <a class="breadcrumb__path-link breadcrumb__path-link_curent" href="#">New Arrivals</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main class="checkout">
+    <div class="container-s">
+      <ul class="checkout-list">
+        <li class="checkout-list__step">
+          <span class="checkout-list__step-text">shipping adress</span>
+          <div class="checkout-list__form form-shipping">
+            <form action="#" class="form-shipping__register">
+
+              <fieldset class="form-shipping__register-fieldset">
+                <legend class="g-form-title form-shipping__register-title">Check as a guest or register</legend>
+                <p class="g-form-subtitle form-shipping__register-subtitle">Register with us for future convenience</p>
+
+                <input type="radio" id="registerRadio1" name="register" value="no" class="form-shipping__register-radio g-input-radio">
+                <label for="registerRadio1" class="form-shipping__register-label">
+                  <span class="form-shipping__register-radio-desc">checkout as guest</span>
+                </label>
+
+                <input type="radio" id="registerRadio2" name="register" value="yes" class="form-shipping__register-radio g-input-radio">
+                <label for="registerRadio2" class="form-shipping__register-label">
+                  <span class="form-shipping__register-radio-desc">register</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="form-shipping__fieldset">
+                <legend class="g-form-title form-shipping__register-title">Register and save time!</legend>
+                <p class="g-form-subtitle form-shipping__register-subtitle">Register with us for future convenience</p>
+
+                <p class="form-shipping__register-text"><i class="fas fa-angle-double-right"></i> Fast and easy checkout</p>
+                <p class="form-shipping__register-text"><i class="fas fa-angle-double-right"></i> Easy access to your order history and status</p>
+              </fieldset>
+
+              <button type="submit" class="g-form-btn form-shipping__register-submit">Continue</button>              
+
+            </form>
+            
+            <form action="" class="form-shipping__login">
+              <fieldset class="form-shipping__login-fieldset">
+                <legend class="g-form-title form-shipping__login-title">Already registed?</legend>
+                <p class="g-form-subtitle form-shipping__login-subtitle">Please log in below</p>
+                
+                <label for="" class="form-shipping__login-label">
+                  <span class="form-shipping__login-text">Email address <sup class="form-shipping__login-text_red">*</sup></span>
+                  <input type="text" class="g-input form-shipping__login-input">
+                </label>
+                
+                <label for="" class="form-shipping__login-label">
+                  <span class="form-shipping__login-text">Password <sup class="form-shipping__login-text_red">*</sup></span>
+                  <input type="text" class="g-input form-shipping__login-input">
+                </label>
+                
+                <small class="form-shipping__login-important"><sup>*</sup> Required Fileds</small>
+                
+                <button type="submit" class="g-form-btn form-shipping__login-submit">Log in</button>
+                
+                <a href="#" class="form-shipping__login-forgot">Forgot Password?</a>                
+                
+              </fieldset>
+            </form>
+            
+          </div>
+        </li>
+        <li class="checkout-list__step"><span class="checkout-list__step-text">billing information</span></li>
+        <li class="checkout-list__step"><span class="checkout-list__step-text">shipping information</span></li>
+        <li class="checkout-list__step"><span class="checkout-list__step-text">shipping method</span></li>
+        <li class="checkout-list__step"><span class="checkout-list__step-text">payment method</span></li>
+        <li class="checkout-list__step"><span class="checkout-list__step-text">order review</span></li>
+      </ul>
+    </div>
+  </main>
+
+  <section class="reviews">
+    <div class="container-s">
+      <div class="row-s">
+
+        <div class="reviews-slider">
+          <div class="reviews-slider__elem">
+            <div class="reviews-slider__avatar"><img src="img/reviews/reviews-avatar-1.jpg" alt="avatar"></div>
+            <div class="reviews-slider__info">
+              <div class="reviews-slider__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</div>
+              <div class="reviews-slider__author">Bin Burhan</div>
+              <div class="reviews-slider__place">Dhaka, Bd</div>
+            </div>
+          </div>
+          <div class="reviews-slider__elem">
+            <div class="reviews-slider__avatar"><img src="img/reviews/reviews-avatar-1.jpg" alt="avatar"></div>
+            <div class="reviews-slider__info">
+              <div class="reviews-slider__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</div>
+              <div class="reviews-slider__author">Bin Burhan</div>
+              <div class="reviews-slider__place">Dhaka, Bd</div>
+            </div>
+          </div>
+          <div class="reviews-slider__elem">
+            <div class="reviews-slider__avatar"><img src="img/reviews/reviews-avatar-1.jpg" alt="avatar"></div>
+            <div class="reviews-slider__info">
+              <div class="reviews-slider__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</div>
+              <div class="reviews-slider__author">Bin Burhan</div>
+              <div class="reviews-slider__place">Dhaka, Bd</div>
+            </div>
+          </div>
+          <div class="reviews-slider__elem">
+            <div class="reviews-slider__avatar"><img src="img/reviews/reviews-avatar-1.jpg" alt="avatar"></div>
+            <div class="reviews-slider__info">
+              <div class="reviews-slider__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</div>
+              <div class="reviews-slider__author">Bin Burhan</div>
+              <div class="reviews-slider__place">Dhaka, Bd</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subscribe">
+          <div class="subscribe-block">
+            <h3 class="subscribe-block__title">Subscribe</h3>
+            <div class="subscribe-block__subtitle">For our newletter and promotion</div>
+            <form action="#" class="subscribe-form">
+              <input type="text" class="subscribe-form__email-field" placeholder="Enter Your Email">
+              <input type="submit" value="Subscribe" class="subscribe-form__btn">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-s">
+      <div class="row-s">
+        <div class="footer-information">
+          <a class="header-logo footer-logo" href="#">
+            <div class="header-logo__img footer-logo__img"><img src="./img/header/header-logo.png" alt="logo-type"></div>
+            <div class="header-logo__text footer-logo__text">BRAN<span class="header-logo__text_bold-pink footer-logo__text_bold-pink">D</span></div>
+          </a>
+          <div class="footer-information__text">
+            <p>Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships. </p>
+            <p>Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
+          </div>
+        </div>
+        <nav class="footer-links">
+          <div class="footer-links__column">
+            <h4 class="footer-links__category-title">Company</h4>
+            <ul class="footer-links__list-links">
+              <li class="footer-links__link"><a href="#">Home</a></li>
+              <li class="footer-links__link"><a href="#">Shop</a></li>
+              <li class="footer-links__link"><a href="#">About</a></li>
+              <li class="footer-links__link"><a href="#">How It Works</a></li>
+              <li class="footer-links__link"><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links__column">
+            <h4 class="footer-links__category-title">Information</h4>
+            <ul class="footer-links__list-links">
+              <li class="footer-links__link"><a href="#">Tearms &amp; Condition</a></li>
+              <li class="footer-links__link"><a href="#">Privacy Policy</a></li>
+              <li class="footer-links__link"><a href="#">How to Buy</a></li>
+              <li class="footer-links__link"><a href="#">How to Sell</a></li>
+              <li class="footer-links__link"><a href="#">Promotion</a></li>
+            </ul>
+          </div>
+          <div class="footer-links__column">
+            <h4 class="footer-links__category-title">Shop category</h4>
+            <ul class="footer-links__list-links">
+              <li class="footer-links__link"><a href="#">Men</a></li>
+              <li class="footer-links__link"><a href="#">Women</a></li>
+              <li class="footer-links__link"><a href="#">Child</a></li>
+              <li class="footer-links__link"><a href="#">Apparel</a></li>
+              <li class="footer-links__link"><a href="#">Browse All</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div class="container-s">
+        <div class="row-s space-between align-center no-wrap">
+          <div class="copyright-info">
+            <h4 class="copyright-info__text">&copy; 2017 Brand All Rights Reserved.</h4>
+          </div>
+          <div class="social-networks">
+            <a href="#" class="social-networks__link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-networks__link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-networks__link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-networks__link"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-networks__link"><i class="fab fa-google-plus-g"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/nouislider.min.js"></script>
+
+  <script>
+    $(function() {
+
+      // Slick-slider JS
+
+      $('.reviews-slider').slick({
+        infinite: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        draggable: true
+      });
+
+      let slider = document.getElementById('flatSlider');
+      let snapValues = [
+        document.getElementById('flatSliderMinValue'),
+        document.getElementById('flatSliderMaxValue')
+      ];
+
+
+      let selectBtn = $('.search-form__directory'),
+        cartBtn = $('.account-info__cart-btn'),
+        cartOverlay = $('.cart'),
+        selectedOption = $('.search-form__directory-option'),
+        dropDownOption = $('.search-form__dropdown'),
+        productsCategory = $('.products-category'),
+        directoryOpption = $('.search-form__directory-unit');
+
+
+      directoryOpption.on('mousedown', function(e) {
+        e.preventDefault();
+
+        selectedOption.val(e.currentTarget.textContent).change();
+        selectedOption.text(e.currentTarget.textContent);
+        dropDownOption.hide();
+      });
+
+      selectBtn.on('mousedown', function(event) {
+        event.preventDefault();
+
+        if (dropDownOption.css('display') == 'none') {
+          dropDownOption.show();
+        } else {
+          dropDownOption.hide();
+        }
+      });
+
+      cartBtn.on('click', function(event) {
+        event.preventDefault();
+
+        if (cartOverlay.css('display') == 'none') {
+          cartOverlay.show();
+        } else {
+          cartOverlay.hide();
+        }
+      });
+
+
+    });
+
+  </script>
+
+</body>
+
+</html>

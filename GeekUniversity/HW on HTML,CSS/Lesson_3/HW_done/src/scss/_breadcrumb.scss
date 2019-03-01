@@ -1,0 +1,35 @@
+.breadcrumb {
+  background-color: #f8f3f4;
+  height: 148px;
+
+  &__title {
+    text-transform: uppercase;
+    color: $color-pink;
+    font-size: 24px;
+    font-weight: 900
+  }
+
+  &__path {
+    color: #636363;
+    font-size: 14px;
+    
+    &-link {
+      color: #636363;
+      font-weight: 300;
+      line-height: 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .3s;
+      padding-left: 2px;
+      
+      &:hover {
+        color: lighten($color-pink, 20%);
+      }
+      
+      &_curent {
+        color: $color-pink;
+        font-weight: 700;
+      }
+    }
+  }
+}

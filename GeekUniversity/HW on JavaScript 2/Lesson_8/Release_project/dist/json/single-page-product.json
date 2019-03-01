@@ -1,0 +1,16 @@
+[
+  {
+    "title": "MOSCHINO CHEAP AND CHIC",
+    "price": "561",
+    "img": "img/product/product-preview.png",
+    "id": "26",
+    "rating": "3.5",
+	"desc": {
+		"slides": [ "img/product/product-preview.png","img/product/product-preview.png"],
+		"designer": "BINBURHAN",
+		"collection": "WOMEN COLLECTION",
+		"material": "COTTON",
+		"text": "Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize parallel core competencies rather than exceptional portals."
+	}
+  }
+]

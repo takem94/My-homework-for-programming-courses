@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+<div id="menu1"></div>
+
+<script src="js/Container.js"></script>
+<script src="js/Menu.js"></script>
+<script src="js/Submenu.js"></script>
+<script src="js/MenuItem.js"></script>
+<script>
+    window.onload = function () {
+        var menu1 = new Menu('menu', 'menu', [
+            new MenuItem('/', 'Главная страница'),
+            new MenuItem('#/about', 'О нас'),
+            new MenuItem('#/service', 'Услуги'),
+            new MenuItem('#/contacts', 'Контакты'),
+            new Submenu('#/other', 'menu__submenu', [
+                new MenuItem('#/', 'Главная страница'),
+                new MenuItem('#/about', 'О нас'),
+                new MenuItem('#/service', 'Услуги'),
+                new MenuItem('#/contacts', 'Контакты'),
+                new MenuItem('#/blog', 'Блог'),
+                new Submenu('#/other', 'menu__submenu', [
+                    new MenuItem('#/', 'Главная страница'),
+                    new MenuItem('#/about', 'О нас'),
+                    new MenuItem('#/service', 'Услуги'),
+                    new MenuItem('#/contacts', 'Контакты'),
+                    new MenuItem('#/blog', 'Личный кабинет')
+                ],new MenuItem('#/something', 'Прочее') )
+            ], new MenuItem('#/something', 'Прочее') ),
+            new MenuItem('#/blog', 'Блог'),
+        ]);
+
+        var menuApp = document.getElementById('menu1');
+        menuApp.innerHTML = menu1.render();
+
+
+        /* Auto clean */
+
+        /*
+        setTimeout( function () {
+            menu1.remove();
+            console.log('Object has been deleted.')
+        }, 10000);
+        */
+
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+.banners {
+  padding: 99px 0 85px;
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    &_resp {
+      flex-wrap: wrap;
+      justify-content: space-between
+    }
+  }
+  &__column {
+    margin: -10px 0 -10px -10px;
+
+    &:last-child {
+      margin-right: -10px;
+      margin-left: 0px;
+    }
+
+  }
+
+  &__link-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+  }
+
+  &__item {
+    min-width: 150px;
+    position: relative;
+    margin: 10px 10px 18px;
+
+    &_resp {
+      width: 31.5%;
+      margin: 0 0 32px 0;
+      height: 260px;
+      overflow: hidden;
+
+      &::after {
+        background-color: rgba(33, 22, 22, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        transition: opacity .3s;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 0;
+        }
+
+        > .banners__item-info {
+          padding-left: 0 !important;
+        }
+      }
+
+      .banners__item-info {
+        position: absolute;
+        background-color: transparent;
+        z-index: 5;
+        color: white;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        padding: 0 0 22px 0;
+        transition: none;
+
+        &::after {
+          position: absolute;
+          content: '';
+          display: block;
+          background-color: #ffffff;
+          width: 125px;
+          height: 2px;
+          z-index: 4;
+          bottom: 0px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &:nth-child(4n) {
+        width: 100%;
+        height: 180px;
+        margin: 0;
+
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+
+      }
+    }
+
+    &:hover &-info {
+      padding-left: 50px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &-info {
+      position: absolute;
+      background-color: white;
+      padding: 15px 20px;
+      left: 0;
+      top: 25px;
+      text-transform: uppercase;
+      color: $color-dark;
+      font-weight: 900;
+      transition: padding .5s;
+      letter-spacing: 0.5px;
+    }
+    &-state {
+      font-size: 18px;
+    }
+    &-category {
+      margin-top: 5px;
+      font-size: 30px;
+      color: $color-pink;
+    }
+  }
+}

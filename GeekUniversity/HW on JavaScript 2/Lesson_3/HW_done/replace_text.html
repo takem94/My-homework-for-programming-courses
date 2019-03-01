@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Замена текста</title>
+    <link rel="stylesheet" href="css/replace_text.css">
+</head>
+<body>
+    <div class="text">
+        <div class="container">
+            <div class="text-place">
+                <h1 class="text-place__title">Замена знаков в тексте</h1>
+                <div class="text-place__input">
+                    <h2>Окно ввода:</h2>
+                    <textarea id="text" wrap="soft">'Ре'ализм — это 'самый быстрый' путь к посредственности.'&#13;&#10;'Всю жизнь люди будут относиться к вам несправедливо. Предоставьте 'Богу' разобраться с ними, иначе ненавистьв вашем сердце в конце концов съест вас изнутри.'&#13;&#10;'Пошлите к 'черту всех', кто не верит в вас. 'Запомните раз и навсегда': вера в свои силы — 'главный стимул к достижению цели'.'</textarea>
+                    <form name="replaceForm" id="replaceForm" class="text-replacer">
+                        <div class="text-replacer__wrapper">
+                            <p>Искать:</p>
+                            <input name="replaceFrom" type="text" value="'" class="text-replacer__input">
+                        </div>
+                        <div class="text-replacer__wrapper">
+                            <p>Заменить на:</p>
+                            <input name="replaceTo" type="text" value="&quot;" class="text-replacer__input">
+                        </div>
+
+                        <div class="text-replacer__toggles">
+                            <div class="text-replacer__toggle">
+                                <label class="text-replacer__toggle-checkbox">
+                                    <input id="onStart" name="onStart" type="checkbox" value="onStart"/>
+                                    <span></span>
+                                </label>
+                                <label class="text-replacer__toggle-text" for="onStart">В начале слова</label>
+                            </div>
+
+                            <div class="text-replacer__toggle">
+                                <label class="text-replacer__toggle-checkbox">
+                                    <input id="onEnd" name="onEnd" type="checkbox" value="onEnd"/>
+                                    <span></span>
+                                </label>
+                                <label class="text-replacer__toggle-text" for="onEnd">В конце слова</label>
+                            </div>
+                        </div>
+                        <input type="submit" class="text-replacer__apply" value="Применить">
+                    </form>
+                </div>
+                <div class="text-place__output">
+                   <h2>Окно вывода:</h2>
+                    <p class="text-place__text-area" contenteditable></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+
+            window.onload = function () {
+
+                let form = document.forms['replaceForm'];
+                let output = document.getElementsByClassName('text-place__text-area')[0];
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    let toSearch = form.elements[0].value.trim(),
+                        toReplace = form.elements[1].value.trim(),
+                        onStart = form.elements[2].checked,
+                        onEnd = form.elements[3].checked;
+
+                    let text = document.getElementById('text').value.trim();
+
+                    let regPattern = new RegExp(toSearch+'','ig');
+
+                    let replaceFunc = function (match, offset, string) {
+
+                        // Т.к. JS поддерживает только урезанные регулярные выражения, пришлось писать подобный костыль.
+                        // Более элегантно бы было использовать Lookbehind и Lookahead, но это поддерживаются только в js 2018.
+                        // Также задание подразумевало использование \b, но оно работает только с латиницей.
+
+                        if (offset === 0 && onStart || offset === (string.length - 1) && onEnd) {
+                            return toReplace;
+                        }
+
+                        let regExpPatternStart = new RegExp('[0-9а-яёА-ЯЁa-zA-Z.]','i');
+
+                        // Вложенность if-ов только из-за удобства чтения и отладки.
+
+                        if(onStart && !onEnd) {
+
+                            if(regExpPatternStart.test(string[offset-1])){
+                                return match;
+                            }
+                        }
+
+                        let regExpPatternEnd = new RegExp('[0-9а-яёА-ЯЁa-zA-Z]','i');
+
+                        if(onEnd && !onStart) {
+
+                            if(regExpPatternEnd.test(string[offset+1])) {
+                                return match;
+                            }
+                        }
+
+                        if(onEnd && onStart){
+
+                            if(regExpPatternStart.test(string[offset-1]) && regExpPatternEnd.test(string[offset+1])){
+                                return match;
+                            }
+                        }
+
+                        return toReplace;
+                    };
+
+                    output.innerHTML = text.replace(regPattern, replaceFunc);
+                });
+            };
+        })();
+
+    </script>
+</body>
+</html>

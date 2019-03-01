@@ -1,0 +1,99 @@
+.offer {
+  padding-bottom: 97px;
+  
+  &-block {
+    display: flex;
+    background-color: #222224;
+
+    &__banner {
+      width: 767px;
+      height: 529px;
+      flex: 0 0 auto;
+      background: $color-dark url(../img/offer/offer-bg.jpg) 100% 100% no-repeat;
+
+      &-info {
+        padding: 139px 0 0 36px;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 54px;
+        font-weight: 700;
+        text-align: left;
+        letter-spacing: 1px;
+        line-height: 50px;
+      }
+
+    }
+
+    &__title {      
+      &_pink {
+        color: $color-pink;
+      }
+    }
+    &__subtitle {
+      font-size: 32px;
+    }
+  }
+
+
+  &-features {
+    flex: 1 1 auto;
+    color: #fff;
+    padding: 55px 40px 55px 112px;
+    display: flex;
+    flex-direction: column;
+
+    &__unit {
+      position: relative;
+      margin-bottom: 54px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      top: -6px;
+      left: -78px;
+    }
+
+    &__title {
+      color: #fbfbfb;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    &__descr {
+      margin-top: 11px;
+      color: #fbfbfb;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      letter-spacing: 0.3px;
+    }
+
+  }
+  
+  
+  &_minimal {
+    background-color: #1c1c1f;
+    padding: 0;
+    height: 341px;
+    
+    .offer-features {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      padding: 0;
+      
+      &__logo {
+        position: static;
+        margin-bottom: 20px;
+      }
+        
+    }
+  }
+}

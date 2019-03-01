@@ -1,0 +1,161 @@
+.reviews {
+  height: 438px;
+  background: #efefef url(../img/reviews/reviews-bg.jpg) center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: rgba(239, 239, 239, 0.50);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  &-slider {
+    width: 49.5%;
+    padding-top: 123px;
+    
+    .slick-dots {
+      display: flex;
+      margin-top: 35px;
+      padding-left: 115px;
+      
+      .slick-active button {
+        background-color: $color-pink;
+      }
+      
+      li button {
+        font-size: 0;
+        margin-right: 13px;
+        width: 38px;
+        height: 4px;
+        border: none;
+        outline: none;
+        background-color: #d6d6d6;
+        transition: background .5s;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: lighten(#d6d6d6, 5%);
+        }
+      }
+    }
+
+    &__elem {
+      outline: none;
+    }
+
+    &__avatar {
+      float: left;
+      width: 83px;
+      height: 83px;
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__info {
+      max-width: 370px;
+      margin-left: 28px;
+      padding-top: 8px;
+      float: left;
+    }
+
+    &__text {
+      color: rgba(34, 34, 36, 0.67);
+      font-size: 16px;
+      font-style: italic;
+      line-height: 26px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    &__author {
+      color: $color-pink;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 16px;
+      margin-top: 14px;
+
+    }
+
+    &__place {
+      color: #222224;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 14px;
+    }
+  }
+}
+
+.subscribe {
+  width: 50%;
+  height: 100%;
+  border-left: 1px solid #e4e4e4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  &-block {
+    margin: 0 auto;
+
+    &__title {
+      text-transform: uppercase;
+      font-family: Lato;
+      color: #1c1c1f;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 24px;
+      padding-bottom: 5px;
+    }
+    &__subtitle {
+      color: #1c1c1f;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+
+  &-form {
+    display: flex;
+    height: 46px;
+    margin-top: 35px;
+    
+    &__email-field {
+      width: 285px;
+      padding-left: 28px;
+      background-color: #e1e1e1;
+      border-radius: 100px 0 0 100px;
+      border: none;
+      color: #616162;
+      font-size: 14px;
+      font-weight: 400;
+      outline: none;
+
+    }
+
+    &__btn {
+      border-radius: 0 100px 100px 0;
+      background-color: $color-pink;
+      color: #fff;
+      border: none;
+      padding: 0 20px;
+      outline: none;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($color-pink, 5%);
+      }
+    }
+
+
+  }
+
+
+
+}

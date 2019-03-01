@@ -1,0 +1,57 @@
+.banners {
+  padding: 100px 0;
+  &__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  }
+  &__column {
+    margin-top: -10px;
+    width: 50%;
+    margin-bottom: -10px;
+  }
+  
+  &__link-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__item {
+    padding: 10px;
+    flex: auto;
+    min-width: 150px;
+    position: relative;
+
+    &:hover &-info{
+      padding-left: 50px;
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+    
+    &-info {
+      position: absolute;
+      background-color: white;
+      padding: 16px 20px;
+      left: 0;
+      top: 35px;
+      text-transform: uppercase;
+      color: $color-dark;
+      font-weight: 900;
+      transition: padding .5s;
+    }
+    &-state {
+      font-size: 18px;
+    }
+    &-category {
+      margin-top: 5px;
+      font-size: 30px;
+      color: $color-pink;
+    }
+  }
+}

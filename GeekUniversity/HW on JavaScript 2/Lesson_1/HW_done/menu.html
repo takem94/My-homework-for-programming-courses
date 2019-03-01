@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<div id="menu1"></div>
+
+<script src="js/Container.js"></script>
+<script src="js/Menu.js"></script>
+<script src="js/Submenu.js"></script>
+<script src="js/MenuItem.js"></script>
+<script>
+    window.onload = function () {
+        var menu1 = new Menu('my', 'my', [
+            new MenuItem('/', 'Главная страница'),
+            new MenuItem('#/about', 'О нас'),
+            new MenuItem('#/service', 'Услуги'),
+            new MenuItem('#/contacts', 'Контакты'),
+            new MenuItem('#/blog', 'Блог'),
+            new Submenu('#/other', 'Прочее', [
+                new MenuItem('#/', 'Главная страница'),
+                new MenuItem('#/about', 'О нас'),
+                new MenuItem('#/service', 'Услуги'),
+                new MenuItem('#/contacts', 'Контакты'),
+                new MenuItem('#/blog', 'Блог'),
+				new Submenu('#/other', 'Прочее', [
+					new MenuItem('#/', 'Главная страница'),
+					new MenuItem('#/about', 'О нас'),
+					new MenuItem('#/service', 'Услуги'),
+					new MenuItem('#/contacts', 'Контакты'),
+					new MenuItem('#/blog', 'Блог')
+				],new MenuItem('#/something', 'Что-то') )
+            ],new MenuItem('#/something', 'Что-то') )
+        ]);
+
+        var menuApp = document.getElementById('menu1');
+        menuApp.innerHTML = menu1.render();
+
+        setTimeout( function () {
+            menu1.remove();
+            console.log('Object has been deleted.')
+        }, 10000);
+
+    };
+</script>
+</body>
+</html>

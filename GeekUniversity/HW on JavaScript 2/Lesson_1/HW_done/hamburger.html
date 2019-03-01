@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamburger</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .hamburger-form {
+            width: 100%;
+            max-width: 263px;
+            height: auto;
+            margin-bottom: 10%;
+        }
+        .hamburger-form__btn {
+            display: block;
+            width: 98%;
+            height: 45px;
+            margin: 15px auto 0;
+            background-color: #fff;
+            border: 2px solid gray;
+            cursor: pointer;
+
+        }
+        .hamburger-form__btn:focus {
+            outline: none;
+        }
+
+        .stats {
+            padding: 0 3px;
+            display: none;
+            margin-top: 15px;
+            font-size: 18px;
+            justify-content: space-between;
+        }
+        .stats > span {
+            padding: 5px;
+            border: 2px solid gray;
+        }
+        .stats > span > span {
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="#" id="hamForm" method="post" class="hamburger-form">
+
+    <fieldset class="hamburger-form__sizes" >
+        <legend class="hamburger-form__title">Sizes</legend>
+
+        <label for="hamSizeSmall" class="hamburger-form__label">
+            <input value="SIZE_SMALL" type="radio" id="hamSizeSmall" name="size" checked>
+            <span class="hamburger-form__label-title">Small</span>
+        </label>
+
+        <label for="hamSizeLarge" class="hamburger-form__label">
+            <input value="SIZE_LARGE" type="radio" id="hamSizeLarge" name="size">
+            <span class="hamburger-form__label-title">Large</span>
+        </label>
+
+    </fieldset>
+
+    <fieldset class="hamburger-form__stuffing" >
+        <legend class="hamburger-form__title">Stuffing</legend>
+
+        <label for="hamFillCheese" class="hamburger-form__label">
+            <input value="STUFFING_CHEESE" type="radio" id="hamFillCheese" name="stuffing" checked>
+            <span class="hamburger-form__label-title">Cheese</span>
+        </label>
+
+        <label for="hamFillPotato" class="hamburger-form__label">
+            <input value="STUFFING_POTATO" type="radio" id="hamFillPotato" name="stuffing">
+            <span class="hamburger-form__label-title">Potato</span>
+        </label>
+
+        <label for="hamFillSalad" class="hamburger-form__label">
+            <input value="STUFFING_SALAD" type="radio" id="hamFillSalad" name="stuffing">
+            <span class="hamburger-form__label-title">Salad</span>
+        </label>
+    </fieldset>
+
+    <fieldset class="hamburger-form__topping" >
+        <legend class="hamburger-form__title">Stuffing</legend>
+
+        <label for="hamTopMayo" class="hamburger-form__label">
+            <input value="TOPPING_MAYO" type="checkbox" id="hamTopMayo" name="topping">
+            <span class="hamburger-form__label-title">Mayonnaise</span>
+        </label>
+
+        <label for="hamTopSpic" class="hamburger-form__label">
+            <input value="TOPPING_SPICE" type="checkbox" id="hamTopSpic" name="topping">
+            <span class="hamburger-form__label-title">Spice</span>
+        </label>
+    </fieldset>
+
+    <button class="hamburger-form__btn" type="submit">Check</button>
+
+    <div class="stats" id="stats">
+        <span>Калории: <span id="statsCalories" class="stats__calories">25</span> к.</span>
+        <span>Цена: <span id="statsPrice" class="stats__price">35</span> р.</span>
+    </div>
+
+</form>
+
+<script src="js/Hamburger/Hamburger.js"></script>
+<script>
+    window.onload = function () {
+        let hamForm = document.getElementById('hamForm');
+
+        hamForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get all values
+
+            let sizes       = document.getElementsByName('size');
+            let stuffings   = document.getElementsByName('stuffing');
+            let toppings    = document.getElementsByName('topping');
+
+            let selected = { toppings: [] };
+
+            for (let i = 0; i < sizes.length; ++i) {
+                if (sizes[i].checked) {
+                    selected.size = sizes[i].value;
+                }
+            }
+
+            for (let i = 0; i < stuffings.length; ++i) {
+                if (stuffings[i].checked) {
+                    selected.stuffings = stuffings[i].value;
+                }
+            }
+
+            for (let i = 0; i < toppings.length; ++i) {
+                if (toppings[i].checked) {
+                    selected.toppings.push(toppings[i].value) ;
+                }
+            }
+
+            // Create object of Hamburger
+
+            let hamburger = new Hamburger(window[selected.size], window[selected.stuffings]);
+
+            if (selected.toppings.length > 0) {
+                for (let i = 0; i < selected.toppings.length; ++i) {
+                    hamburger.addTopping(window[selected.toppings[i]]);
+                }
+            }
+
+            hamburger.calcAll();
+
+            // Show data of object hamburger on page
+
+            let stats = document.getElementById('stats');
+
+            let caloriesSpan = document.getElementById('statsCalories');
+            let priceSpan    = document.getElementById('statsPrice');
+
+            priceSpan.innerHTML = hamburger.getPrice();
+            caloriesSpan.innerHTML = hamburger.getCalories();
+
+            stats.style.display = 'flex';
+        });
+
+    }
+</script>
+</body>
+</html>

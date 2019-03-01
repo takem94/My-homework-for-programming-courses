@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Страница с отзывами</title>
+  <link rel="stylesheet" href="css/reviews.css">
+</head>
+<body>
+  <div class="review">
+    <div class="container">
+      <div class="review-list">
+
+        <!--<div class="review-list__elem">-->
+          <!--<p class="review-list__elem-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque autem dolorem eveniet maiores non numquam obcaecati perspiciatis praesentium sint sit, vitae voluptas? Ab ducimus eveniet hic ipsum soluta, vero?</p>-->
+          <!--<p class="review-list__elem-user">Иванов Иван Иванович <span class="review-list__elem-user-id">#51515</span></p>-->
+          <!--<span class="review-list__elem-time">15.02.2019 21:45</span>-->
+          <!--<div class="review-list__elem-control">-->
+            <!--<button class="review-list__elem-approve">Одобрить</button>-->
+            <!--<button class="review-list__elem-delete">X</button>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+      </div>
+      <div class="review-message">
+        <form action="#" class="review-message__form">
+
+          <div class="review-message__form-wrapper">
+            <label for="reviewText" class="review-message__form-title">Введите текст рецензии:</label>
+            <textarea name="reviewText" id="reviewText" placeholder="Введите текст..." class="review-message__form-textarea"></textarea>
+          </div>
+
+          <div class="review-message__form-wrapper">
+            <label for="reviewUser" class="review-message__form-title">Введите имя:</label>
+            <input name="reviewUser" id="reviewUser" placeholder="Иванов Иван Иванович" class="review-message__form-input">
+            <input class="review-message__form-btn" type="submit" name="submit" value="Отправить">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/review/Container.js"></script>
+  <script src="js/review/Review.js"></script>
+  <script src="js/review/ReviewModule.js"></script>
+
+  <script>
+
+    $(function () {
+        var $reviewList = $('.review-list'),
+            $reviewForm = $('.review-message__form');
+
+        var reviewMod = new ReviewModule($reviewList);
+
+        setTimeout(function () {
+            console.log('hello!');
+            reviewMod.render();
+        }, 80);
+
+        $reviewForm.on('submit',function (e) {
+            e.preventDefault();
+
+            var $textInput = e.target[0],
+                $nameInput = e.target[1];
+
+            var time = new Date();
+
+            var toSend = {
+                "text": $textInput.value,
+                "user_name": $nameInput.value,
+                "user_id": Math.floor(Math.random() * (999999 - 100000) + 100000) + '',
+                "time": time.getTime() + '',
+                "id_comment": Math.floor(Math.random() * (999999 - 100000) + 100000) + ''
+            };
+
+            reviewMod.add(toSend);
+
+            $textInput.value = '';
+            $nameInput.value = '';
+        });
+
+        $reviewList.on('click',function (e) {
+
+            if ($(e.target).hasClass('review-list__elem-delete')) {
+                var idElem,
+                    target = e.target;
+
+                while(target !== this) {
+
+                    if($(target).hasClass('review-list__elem')){
+                        idElem = $(target).data('id');
+                        reviewMod.remove(idElem);
+                        break;
+                    }
+                    target = target.parentNode;
+                }
+            }
+
+            if ($(e.target).hasClass('review-list__elem-approve')) {
+                var idElem,
+                    btnHolder = e.target,
+                    target = e.target;
+
+                while(target !== this) {
+
+                    if($(target).hasClass('review-list__elem')){
+                        idElem = $(target).data('id');
+                        break;
+                    }
+                    target = target.parentNode;
+                }
+
+                if (idElem !== undefined && !reviewMod.submit(idElem)) {
+                    $(btnHolder).addClass('review-list__elem-approve_confirmed').text('Одобрено');
+                }
+            }
+        });
+    });
+  </script>
+</body>
+</html>
