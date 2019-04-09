@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Карта</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="./libs/libs.min.css" rel="stylesheet">
+    <link href="./css/main.min.css" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=da39c29a-0eeb-49f2-abad-f62e92f0ee46&amp;lang=ru_RU" type="text/javascript"></script>
+  </head>
+  <body>
+    <header></header>
+    <section class="map">
+      <nav class="map-navigate">
+        <button class="map-navigate__btn" id="saveDataBtn" type="button">Сохранить</button>
+        <button class="map-navigate__btn" id="delDataBtn" type="button">Очистить</button>
+      </nav>
+      <div class="map-canvas" id="map"></div>
+      <div id="modal"></div>
+    </section>
+    <div class="review-modal hide">
+      <div class="review-modal__header">
+        <p class="review-modal__header-title"><i class="fas fa-map-marker-alt"></i><span>ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса</span></p>
+        <button class="review-modal__header-close cross"></button>
+      </div>
+      <div class="review-modal__body">
+        <div class="review-modal__body-reviews reviews-list">
+          <p class="reviews-list__empty">Отзывов пока нет...</p>
+        </div>
+        <div class="review-modal__body-form">
+          <p class="review-modal__body-form-title">Ваш отзыв</p>
+          <input class="review-modal__body-form-name" placeholder="Ваше имя" type="text">
+          <input class="review-modal__body-form-place" placeholder="Укажите место" type="text">
+          <textarea class="review-modal__body-form-message" placeholder="Поделитесь впечатлениями"></textarea>
+          <div class="review-modal__body-form-wrapper">
+            <button class="review-modal__body-form-btn">Добавить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Created by takem on 14.01.2017.
+    -->
+    <script id="modalTemplate" type="text/x-handlebars-template">
+      <div class="review-modal hide">
+        <div class="review-modal__header">
+          <p class="review-modal__header-title"><i class="fas fa-map-marker-alt"></i><span id="modalAddress"></span></p>
+          <button class="review-modal__header-close cross"></button>
+        </div>
+        <div class="review-modal__body">
+          <div class="review-modal__body-reviews reviews-list">
+            <div class="reviews-list__container"></div>
+          </div>
+          <form class="review-modal__body-form" name="reviewForm" method="get">
+            <p class="review-modal__body-form-title">Ваш отзыв</p>
+            <input class="review-modal__body-form-name" name="name" placeholder="Ваше имя" type="text">
+            <input class="review-modal__body-form-place" name="place" placeholder="Укажите место" type="text">
+            <textarea class="review-modal__body-form-message" name="message" placeholder="Поделитесь впечатлениями"></textarea>
+            <div class="review-modal__body-form-wrapper">
+              <button class="review-modal__body-form-btn" type="button">Добавить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </script>
+    <script id="reviewListTemplate" type="text/x-handlebars-template">
+      {{#if items}}
+      {{#each items}}
+      <div class="reviews-list__elem">
+        <p class="reviews-list__elem-title"><span class="reviews-list__elem-title-name">{{ name }}</span><span class="reviews-list__elem-title-place">{{ place }}</span><span class="reviews-list__elem-title-date">{{ time }}</span></p>
+        <p class="reviews-list__elem-description">{{ message }}</p>
+      </div>{{/each}}
+      {{else}}
+      <p class="reviews-list__empty">Отзывов пока нет...</p>{{/if}}
+    </script>
+    <script id="elemTemplate" type="text/x-handlebars-template">
+      <div class="reviews-list__elem">
+        <p class="reviews-list__elem-title"><span class="reviews-list__elem-title-name">{{ name }}</span><span class="reviews-list__elem-title-place">{{ place }}</span><span class="reviews-list__elem-title-date">{{ time }}</span></p>
+        <p class="reviews-list__elem-description">{{ message }}</p>
+      </div>
+    </script>
+    <script src="./libs/libs.min.js"></script>
+    <script src="./js/main.min.js"></script>
+  </body>
+</html>

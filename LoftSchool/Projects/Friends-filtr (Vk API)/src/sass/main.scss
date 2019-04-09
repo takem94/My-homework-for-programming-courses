@@ -1,0 +1,407 @@
+@import "vars";
+@import "fonts";
+// Sprites for png and svg
+@import "sprite";
+@import "sprite-svg";
+
+body, html {
+  height: 100%;
+  background-color: #999999;
+}
+
+[draggable] {
+  background-color: white;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+  user-drag: element;
+}
+
+.container {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.hide {
+  position: relative;
+  width: 0;
+  z-index: -999;
+  opacity: 0;
+}
+
+.cross {
+  position: relative;
+  height: 100%;
+  width: 14px;
+  transition: transform .3s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::before, &::after {
+    top: 50%;
+    left: 50%;
+    height: 16px;
+    width: 4px;
+    background-color: white;
+    position: absolute;
+    content: '';
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    border-radius: 5px;
+    transition: background-color .3s;
+  }
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+  &_rotate {
+    transform: rotate(-45deg);
+  }
+  &_silver {
+    &::before, &::after {
+      background-color: $primary-dark-silver;
+    }
+  }
+}
+
+.header {
+
+  &-content {
+    display: flex;
+    align-items: center;
+    background-color: $primary-color;
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+
+    &__login {
+      display: block;
+      border: 3px solid white;
+      background-color: transparent;
+      color: white;
+      font-family: $main-font;
+      margin: 0 15px 0 auto;
+      font-weight: bold;
+      border-radius: 30px;
+      padding: 5px 15px 3px;
+      transition: border .3s, color .3s;
+      cursor: pointer;
+
+      &:hover {
+        border: 3px solid rgba(255, 255, 255, 0.70);
+        color: rgba(255, 255, 255, 0.70);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__user {
+      display: flex;
+      align-items: center;
+      border: 3px solid white;
+      overflow: hidden;
+      border-radius: 150px;
+      padding: 0 0 0 15px;
+      box-sizing: border-box;
+
+      &-name {
+        display: block;
+        max-width: 50px;
+        font-family: $main-font;
+        color: white;
+        font-weight: bold;
+        text-transform: capitalize;
+        font-size: 14px;
+        margin-right: 10px;
+        white-space: nowrap;
+        transition: max-width 1s;
+
+        span {
+          display: none;
+        }
+      }
+
+      &:hover &-name {
+        max-width: 200px;
+
+        span {
+          display: inline-block;
+        }
+      }
+
+      &-img {
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+        border-radius: 100px;
+        box-shadow: 0 0 1px 3.5px white;
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+
+    }
+  }
+
+}
+
+.friends {
+  height: 70%;
+
+  &-filter {
+    // Style for "bg"
+    max-width: 620px;
+    height: 490px;
+    background-color: $primary-silver;
+    border-radius: 10px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &__header {
+      display: flex;
+      width: 100%;
+      background-color: $primary-color;
+      height: 45px;
+
+      &-title {
+        margin: 15px 15px;
+        color: white;
+        font-family: $main-font;
+        font-size: 16px;
+        font-weight: 300;
+      }
+      &-close {
+        padding: 0;
+        margin-right: 12px;
+        margin-left: auto;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      &-close:focus {
+        outline: none;
+      }
+      &-close {
+        &:hover::after, &:hover::before {
+          background-color: orangered;
+        }
+      }
+
+    }
+
+    &__search-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 45px;
+
+      &-input {
+        box-sizing: border-box;
+        height: 26px;
+        width: 285px;
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        color: #9f9f9f;
+        font-family: $main-font;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+        padding-left: 14px;
+      }
+
+      .input-wrapper {
+        position: relative;
+
+        i {
+          position: absolute;
+          top: 50%;
+          left: 7px;
+          color: $primary-dark-silver;
+          transform: translateY(-50%);
+          font-size: 14px;
+        }
+
+        input {
+          padding-left: 28px;
+        }
+      }
+
+      &-input:focus {
+        outline: none;
+        box-shadow: 0 0 15px -1px #ccc;
+      }
+    }
+
+    &__body {
+      flex-grow: 1;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+
+      &-list {
+        box-sizing: border-box;
+        width: 50%;
+        overflow: hidden;
+        border-right: 1px solid $primary-silver;
+        padding-left: 15px;
+
+        &-title {
+          margin: 14px 15px 0 0;
+          padding-bottom: 5px;
+          color: #4f4f4f;
+          font-family: $main-font;
+          font-size: 14px;
+          font-weight: 500;
+          border-bottom: 1px solid $primary-silver;
+        }
+
+        &-scope {
+          box-sizing: border-box;
+          height: 100%;
+          padding-right: 15px;
+        }
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+
+    &__footer {
+      height: 45px;
+      display: flex;
+      align-items: center;
+
+      &-save-btn {
+        color: white;
+        font-family: $main-font;
+        font-size: 13px;
+        font-weight: 300;
+        border: none;
+        margin-left: auto;
+        margin-right: 7px;
+        width: 87px;
+        height: 30px;
+        background-color: #ff8663;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color .3s;
+        &:hover {
+          background-color: #ff9974;
+        }
+      }
+    }
+
+  }
+}
+
+.friends-list {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 320px;
+
+  .simplebar-track {
+    margin-right: 3px;
+    .simplebar-scrollbar {
+      width: 4px;
+      &::before {
+        background-color: #c4c4c4;
+      }
+    }
+  }
+
+  &__elem {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    border-bottom: 1px solid $primary-silver;
+    cursor: pointer;
+    border-top: 0 solid white;
+    transition: border .3s;
+
+    &-img {
+      border-radius: 150px;
+      overflow: hidden;
+      height: 48px;
+      width: 48px;
+      margin-left: 6px;
+      user-select: none;
+
+      img {
+        height: auto;
+        width: 100%;
+        user-select: none;
+      }
+    }
+
+    &-name {
+      margin-left: 6px;
+      margin-right: auto;
+      color: #4f4f4f;
+      font-family: $main-font;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    &-action {
+      height: 16px;
+      margin-right: 9px;
+
+      &::after,&::before {
+        height: 16px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &_add {
+        &:hover {
+
+          &::after, &::before {
+            background-color: greenyellow;
+          }
+        }
+      }
+
+      &_rm {
+        &:hover {
+
+          &::after, &::before {
+            background-color: #ff0000;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.clone {
+  background-color: white;
+  width: 280px;
+  height: 60px;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}

@@ -1,0 +1,368 @@
+@import "vars";
+@import "fonts";
+// Sprites for png and svg
+@import "sprite";
+@import "sprite-svg";
+
+body, html {
+  height: 100%;
+}
+
+.friend {
+  float: left;
+  margin: 15px;
+
+}
+
+
+.hide {
+  position: relative;
+  width: 0;
+  z-index: -999;
+  opacity: 0;
+}
+
+.btn-group-wrap {
+  text-align: center;
+}
+
+.group {
+  box-sizing: border-box;
+  position: relative;
+
+  &__img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 30px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    transition: height .3s;
+    cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    span {
+      overflow-wrap: break-word;
+      position: absolute;
+      display: block;
+      top: 50%;
+      width: 100%;
+      padding: 10px;
+      overflow-y: hidden;
+      transform: translateY(-50%);
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    &:hover {
+      height: 60%;
+    }
+  }
+}
+
+div.btn-group {
+  margin: 0 auto;
+  text-align: center;
+  width: inherit;
+  display: inline-block;
+}
+
+.sort {
+  background-color: whitesmoke;
+  padding: 5px;
+  text-align: right;
+  margin-bottom: 10px;
+
+  &__title {
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    display: inline-block;
+  }
+
+  &__buttons {
+    display: inline-block;
+  }
+
+  &__button {
+    background-color: transparent;
+    font-weight: bold;
+    border: 0;
+    padding-bottom: 3px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 5px;
+
+    &:hover {
+      color: silver;
+      border-bottom: 1px solid silver;
+    }
+
+    &_active {
+      border-bottom: 1px solid gray;
+      cursor: default;
+      &:hover {
+        color: gray;
+        border-bottom: 1px solid gray;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+.photos {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+
+  &__img {
+    box-sizing: border-box;
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    background-color: whitesmoke;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__stats {
+    width: 100%;
+    color: white;
+    transition: height .3s;
+    overflow: hidden;
+    text-align: right;
+    padding-bottom: 3px;
+
+    span {
+      margin-right: 10px;
+    }
+  }
+
+  &__comments-wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    button {
+      padding-top: 5px;
+      background-color: rgba(0, 0, 0, 0.25);
+      display: block;
+      width: 100%;
+      border: none;
+      color: white;
+      padding-bottom: 7px;
+      &:hover {
+        text-decoration-line: underline;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__list {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    max-height: 320px;
+    transition: max-height .3s, padding .3s;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+    padding: 5px;
+    box-sizing: border-box;
+
+    &_hidden {
+      max-height: 0;
+      padding: 0;
+    }
+  }
+
+  &__elem {
+    position: relative;
+    padding: 5px;
+    border-bottom: 1px solid silver;
+    width: 100%;
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      float: left;
+      height: 50px;
+      width: 50px;
+    }
+
+    &-wrapper {
+      box-sizing: border-box;
+      margin-left: 20%;
+      width: 80%;
+      padding: 5px;
+      text-align: left;
+      float: left;
+      min-height: 60px;
+    }
+
+    &-full-name {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    &-date {
+      display: block;
+      color: silver;
+      text-align: right;
+    }
+
+    &-message {
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+}
+
+.album {
+  box-sizing: border-box;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 15px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.lds-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  top: 45%;
+  width: 64px;
+  height: 64px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 32px 32px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2e7fff;
+  margin: -3px 0 0 -3px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

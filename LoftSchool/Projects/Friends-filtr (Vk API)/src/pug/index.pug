@@ -1,0 +1,79 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Фильтр друзей
+
+        link(href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700" rel="stylesheet")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+        link(href="./libs/libs.min.css" rel="stylesheet")
+        link(href="./css/simplebar.min.css" rel="stylesheet")
+        link(href="./css/main.min.css" rel="stylesheet")
+
+        script(src="https://vk.com/js/api/openapi.js?160" type="text/javascript")
+    body
+        include parts/header.pug
+
+        header(class="header")
+            div(class="container")
+                div(class="header-content")
+                    button(class="header-content__login" id="loginBtn") Войти
+                    div(class="header-content__user hide")
+                        span(class="header-content__user-name")
+                        div(class="header-content__user-img")
+                            img(src="https://pp.userapi.com/c845417/v845417304/94a00/K5_SmvGwjYE.jpg" alt="")
+
+        section(class="friends")
+            div(class="container")
+                div(class="friends-filter")
+                    div(class="friends-filter__header")
+                        h2(class="friends-filter__header-title") Выберите друзей
+                        button(class="friends-filter__header-close cross")
+                    div(class="friends-filter__search-bar")
+                        div(class="input-wrapper")
+                            i(class="fas fa-search")
+                            input(id="searchAll" class="friends-filter__search-bar-input" type="text" placeholder="Начните вводить имя друга")
+                        input(id="searchFav" class="friends-filter__search-bar-input" type="text" placeholder="Название")
+                    div(class="friends-filter__body")
+                        div(class="friends-filter__body-list")
+                            p(class="friends-filter__body-list-title") Ваши друзья
+                            div(id="allFriends" class="friends-filter__body-list-scope friends-list" data-simplebar)
+                                div(class="friends-list__elem" draggable="false")
+                                    div(class="friends-list__elem-img")
+                                        img(draggable="false" src="https://pp.userapi.com/c845417/v845417304/94a12/stWNzMiFgmw.jpg?ava=1" alt="Avatar")
+                                    p(class="friends-list__elem-name") Name Name
+                                    button(class="friends-list__elem-action friends-list__elem-action_add cross cross_rotate cross_silver")
+
+                        div(class="friends-filter__body-list" )
+                            p(class="friends-filter__body-list-title") Друзья в списке
+                            div(id="favoriteFriends" class="friends-filter__body-list-scope friends-list" data-simplebar)
+                                div(class="friends-list__elem" draggable="false")
+                                    div(class="friends-list__elem-img")
+                                        img(draggable="false" src="https://pp.userapi.com/c845417/v845417304/94a12/stWNzMiFgmw.jpg?ava=1" alt="Avatar")
+                                    p(class="friends-list__elem-name") Name Name
+                                    button(class="friends-list__elem-action friends-list__elem-action_rm cross cross_silver")
+                    div(class="friends-filter__footer")
+                        button(class="friends-filter__footer-save-btn" id="btnSave") Сохранить
+
+
+        include parts/footer.pug
+
+        script(id="friendsElem" type="text/x-handlebars-template")
+            | {{#each items}}
+            div(class="friends-list__elem" draggable="true" data-id="{{ id }}")
+                div(class="friends-list__elem-img")
+                    img(src="{{ photo_100 }}" alt="Avatar")
+                p(class="friends-list__elem-name") {{ first_name }} {{ last_name }}
+                | {{#if rm}}
+                button(class="friends-list__elem-action friends-list__elem-action_rm cross cross_silver")
+                | {{else}}
+                button(class="friends-list__elem-action friends-list__elem-action_add cross cross_rotate cross_silver")
+                | {{/if}}
+            | {{/each}}
+
+        script(src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js")
+        script(src="./libs/libs.min.js")
+        script(src="./js/main.min.js")

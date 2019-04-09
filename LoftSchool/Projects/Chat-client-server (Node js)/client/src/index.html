@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Чат</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="./libs/libs.min.css" rel="stylesheet">
+    <link href="./css/main.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header></header>
+    <section class="chat" id="chat">
+      <aside class="chat-panel">
+        <div class="user-profile">
+          <div class="user-profile__avatar"><img src="./img/avatar.png" alt="avatar">
+            <p class="user-profile__avatar-overlay"><i class="fas fa-user-plus"></i></p>
+          </div>
+          <h3 class="user-profile__name" id="chatUserName"></h3>
+        </div>
+        <div class="users" id="chatPanel"></div>
+      </aside>
+      <main class="chat-area">
+        <ul class="message-list" id="messageList">
+          <li class="message-list__elem message-elem">
+            <div class="message-elem__avatar"><img src="./img/avatar.png" alt="avatar"></div>
+            <div class="message-elem__content">
+              <p class="message-elem__header"><span class="message-elem__name">Asdf asdfasdf</span><span class="message-elem__time">15:45</span></p>
+              <p class="message-elem__message">asdfasdfasdfasdfsdfasdf</p>
+            </div>
+          </li>
+          <li class="message-list__elem message-elem">
+            <div class="message-elem__avatar"><img src="./img/avatar.png" alt="avatar"></div>
+            <div class="message-elem__content">
+              <p class="message-elem__header"><span class="message-elem__name">Asdf asdfasdf</span><span class="message-elem__time">15:45</span></p>
+              <p class="message-elem__message">
+                asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf
+                asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdf
+              </p>
+            </div>
+          </li>
+        </ul>
+        <form class="message-form" action="#" id="messageForm" method="POST">
+          <input class="message-form__input" id="messageInput" type="text" placeholder="Введите сообщение...">
+          <input class="message-form__submit" type="submit" value="Отправить">
+        </form>
+      </main>
+    </section>
+    <script id="modalTemplate" type="text/x-handlebars-template">
+      <div class="modal-wrapper" id="modal">
+        <div class="modal-window">
+          <div class="modal-window__header">
+            <p class="modal-window__title">{{ windowName }}</p>
+          </div>
+          <div class="modal-window__body">{{{ windowBody }}}</div>
+        </div>
+      </div>
+    </script>
+    <script id="authenticationTemplate" type="text/x-handlebars-template">
+      <form class="authentication" method="POST" id="auth">
+        <input class="authentication__input" id="fname" type="text" placeholder="Введите имя">
+        <input class="authentication__input" id="lname" type="text" placeholder="Введите фамилию">
+        <input class="authentication__submit btn-default" type="submit" value="Отправить">
+      </form>
+    </script>
+    <script id="avatarTemplate" type="text/x-handlebars-template">
+      <div class="drag-n-drop">
+        <div class="drag-n-drop__zone">
+          <div class="drag-n-drop__drop-text">
+            <p class="scale-inf">Drop here</p>
+          </div><img class="drag-n-drop__preview" src="./img/avatar.png" alt="avatar">
+          <input type="file" id="imgUpload" style="display:none">
+          <button class="drag-n-drop__add" type="button">Выберите файл</button>
+        </div>
+        <div class="drag-n-drop__btn-group">
+          <button class="drag-n-drop__btn btn-default" type="button" id="cancelBtnAvatar">Отмена</button>
+          <button class="drag-n-drop__btn btn-default" type="button" id="saveBtnAvatar">Сохранить</button>
+        </div>
+      </div>
+    </script>
+    <script id="usersTemplate" type="text/x-handlebars-template">
+      <h3 class="users__title">Участники<span class="users__count">({{ count }})</span></h3>
+      <ul class="users__list users-list">{{#each users}}
+        <li class="users-list__elem">{{ fullName  }}</li>{{/each}}
+      </ul>
+    </script>
+    <script id="messageTemplate" type="text/x-handlebars-template">
+      <li class="message-list__elem message-elem fade-in" data-message-id="{{ messageId }}" data-user-id="{{ userId }}">
+        <div class="message-elem__avatar"><img src="{{ avatar }}" alt="avatar"></div>
+        <div class="message-elem__content">
+          <p class="message-elem__header"><span class="message-elem__name">{{ fullName }}</span><span class="message-elem__time">{{ time }}</span></p>
+          <p class="message-elem__message">{{ message }}</p>
+        </div>
+      </li>
+    </script>
+    <div class="hide">
+      <div class="highlight prepare"></div>
+    </div>
+    <script src="./libs/libs.min.js"></script>
+    <script src="./js/main.min.js"></script>
+  </body>
+</html>

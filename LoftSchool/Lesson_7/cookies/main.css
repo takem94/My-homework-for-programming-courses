@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+#homework-container {
+    position: relative;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#homework-container input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+#homework-container table {
+    width: 100%;
+}
+
+#homework-container table td,
+#homework-container table th {
+    padding: 5px;
+    text-align: left;
+}
+
+#homework-container tbody tr:nth-child(even) {
+    background: #ebebeb;
+}
+
+#add-block {
+    position: absolute;
+    top: 0;
+    right: -225px;
+    background-color: whitesmoke;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#add-block input {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+#add-block input:focus {
+    outline: none;
+}
+
+#add-button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background: white;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 0.3s, color .15s;
+}
+
+#add-button:hover {
+    color: white;
+    background: lightgrey;
+}
+
+#add-button:focus {
+    outline: none;
+}
+
+#list-block {
+    text-align: center;
+}
+
+#list-table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+#list-table thead th {
+    padding: 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+    width: 33%;
+    border-left: 1px solid lightgrey;
+    background-color: #333334;
+    color: white;
+}
+
+#list-table thead tr {
+    border: 1px solid lightgrey;
+}
+
+#list-table tbody {
+    border: 1px solid lightgrey;
+}
+
+#list-table tbody th {
+    font-weight: normal;
+    padding: 10px 0;
+    text-align: center;
+    width: 33%;
+    border-left: 1px solid lightgrey;
+}
+
+#filter-block {
+    border: 1px solid lightgrey;
+    width: 100%;
+    margin: 0 auto 15px;
+    background: whitesmoke;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#filter-block input {
+    margin-left: 15px;
+    font-size: 18px;
+    width: 66%;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+#filter-block input:focus {
+    outline: none;
+}
+
+#list-block {
+    width: 100%;
+    padding-top: 15px;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: rgba(255, 0, 0, 0.51);
+}

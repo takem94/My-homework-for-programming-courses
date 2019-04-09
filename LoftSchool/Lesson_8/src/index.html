@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Пример MVC и VK Api</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./libs/libs.min.css" rel="stylesheet">
+    <link href="./css/simplebar.min.css" rel="stylesheet">
+    <link href="./css/main.min.css" rel="stylesheet">
+    <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
+  </head>
+  <body>
+    <header></header>
+    <div class="container">
+      <div id="header"></div>
+      <div class="btn-group-wrap">
+        <div class="btn-group btn-group-lg text-center">
+          <button class="btn btn-default" type="button" data-vk-method="friends">Друзья</button>
+          <button class="btn btn-default" type="button" data-vk-method="news">Новости</button>
+          <button class="btn btn-default" type="button" data-vk-method="groups">Группы</button>
+          <button class="btn btn-default" type="button" data-vk-method="photos">Фото</button>
+        </div>
+      </div>
+      <hr>
+      <div id="results"></div>
+    </div>
+    <!--Created by takem on 14.01.2017.
+    -->
+    <script type="text/x-handlebars-template" id="headerTemplate">
+      <h1>Данные из VK-аккаунта: {{first_name}} {{last_name}}</h1>
+    </script>
+    <script type="text/x-handlebars-template" id="friendsTemplate">
+      <div id="friendsList row"></div>{{#each items}}
+      <div class="friend text-center col-md-2"><img class="img-circle" src="{{photo_100}}">
+        <div>{{first_name}}<br>{{last_name}}</div>
+      </div>{{/each}}
+    </script>
+    <script type="text/x-handlebars-template" id="newsTemplate">
+      <div class="news"></div>{{#each list}}
+      {{#if text}}
+      <div class="post"><b>{{formatDate date}}</b>
+        <div class="post-text">{{{text}}}</div>
+      </div>
+      <hr>{{/if}}
+      {{/each}}
+    </script>
+    <script type="text/x-handlebars-template" id="groupsTemplate">
+      <div id="groupsList row"></div>{{#each items}}
+      <div class="text-center col-md-2">
+        <div class="group">
+          <div class="group__img"><img src="{{photo_200}}">
+            <div class="group__name"><span>{{name}}</span></div>
+          </div>
+        </div>
+      </div>{{/each}}
+    </script>
+    <script type="text/x-handlebars-template" id="photosTemplate">
+      <div id="photosList row">
+        <div class="col-md-12 col-sd-12">
+          <div class="sort">
+            <p class="sort__title">Сортирова по:</p>
+            <div class="sort__buttons">
+              <button class="sort__button sort__button_active" data-sort-by="date">дате</button>
+              <button class="sort__button" data-sort-by="likes">лайкам</button>
+              <button class="sort__button" data-sort-by="reposts">репостам</button>
+              <button class="sort__button" data-sort-by="comments">комментариям</button>
+            </div>
+          </div>
+        </div>{{#each items}}
+        <div class="col-xs-12">
+          <div class="album">
+            <p class="album__title">{{title}}</p>
+            <div class="album__photos-wrapper">
+              <div class="row">{{#each items}}
+                <div class="text-center col-md-4">
+                  <div class="photos">
+                    <div class="photos__img"><img src="{{photo_300}}"></div>
+                    <div class="photos__comments-wrapper">
+                      <div class="photos__stats"><span>Likes: {{ likes.count }}</span><span>Reposts: {{ reposts.count }}</span><span>Comments: {{ comments.count }}</span></div>
+                      <button class="photos__comments" data-count="{{comments.count}}" data-status-btn="false" data-id-photo="{{ id }}">Показать комментарии</button>
+                      <ul class="photos__list photos__list_hidden"></ul>
+                    </div>
+                  </div>
+                </div>{{/each}}
+              </div>
+            </div>
+          </div>
+        </div>{{/each}}
+      </div>
+    </script>
+    <script type="text/x-handlebars-template" id="commentsTemplate">{{#each items}}
+      <li class="photos__elem"><img class="img-circle" src="{{photo_50}}" alt="avatar">
+        <div class="photos__elem-wrapper">
+          <p class="photos__elem-full-name">{{ full_name }}</p>
+          <p class="photos__elem-message">{{ text }}</p><span class="photos__elem-date">{{ formatDate date }}</span>
+        </div>
+      </li>{{/each}}
+    </script>
+    <script type="text/x-handlebars-template" id="loaderTemplate">
+      <div class="lds-wrapper">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+    <script src="./libs/libs.min.js"></script>
+    <script src="./js/main.min.js"></script>
+  </body>
+</html>

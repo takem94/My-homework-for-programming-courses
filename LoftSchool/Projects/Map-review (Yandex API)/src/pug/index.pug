@@ -1,0 +1,88 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Карта
+
+        link(href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700" rel="stylesheet")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+        link(href="./libs/libs.min.css" rel="stylesheet")
+        link(href="./css/main.min.css" rel="stylesheet")
+
+        script(src="https://api-maps.yandex.ru/2.1/?apikey=da39c29a-0eeb-49f2-abad-f62e92f0ee46&lang=ru_RU" type="text/javascript")
+    body
+        include parts/header.pug
+
+        section(class="map")
+            nav(class="map-navigate")
+                button(class="map-navigate__btn" id="saveDataBtn" type="button") Сохранить
+                button(class="map-navigate__btn" id="delDataBtn" type="button") Очистить
+            div(id="map" class="map-canvas")
+            div(id="modal")
+
+        div(class="review-modal hide")
+            div(class="review-modal__header")
+                p(class="review-modal__header-title")
+                    i(class="fas fa-map-marker-alt")
+                    span ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса ул. Гайдара 29, город Одесса
+                button(class="review-modal__header-close cross")
+            div(class="review-modal__body")
+                div(class="review-modal__body-reviews reviews-list")
+                    p(class="reviews-list__empty") Отзывов пока нет...
+                div(class="review-modal__body-form")
+                    p(class="review-modal__body-form-title") Ваш отзыв
+                    input(placeholder="Ваше имя" class="review-modal__body-form-name" type="text")
+                    input(placeholder="Укажите место" class="review-modal__body-form-place" type="text")
+                    textarea(placeholder="Поделитесь впечатлениями" class="review-modal__body-form-message")
+                    div(class="review-modal__body-form-wrapper")
+                        button(class="review-modal__body-form-btn") Добавить
+
+
+        include parts/footer.pug
+
+        script(id="modalTemplate" type="text/x-handlebars-template")
+            div(class="review-modal hide")
+                div(class="review-modal__header")
+                    p(class="review-modal__header-title")
+                        i(class="fas fa-map-marker-alt")
+                        span(id="modalAddress")
+                    button(class="review-modal__header-close cross")
+                div(class="review-modal__body")
+                    div(class="review-modal__body-reviews reviews-list")
+                        div(class="reviews-list__container")
+                    form(class="review-modal__body-form" name="reviewForm" method="get")
+                        p(class="review-modal__body-form-title") Ваш отзыв
+                        input(name="name" placeholder="Ваше имя" class="review-modal__body-form-name" type="text")
+                        input(name="place" placeholder="Укажите место" class="review-modal__body-form-place" type="text")
+                        textarea(name="message" placeholder="Поделитесь впечатлениями" class="review-modal__body-form-message")
+                        div(class="review-modal__body-form-wrapper")
+                            button(class="review-modal__body-form-btn" type="button") Добавить
+
+        script(id="reviewListTemplate" type="text/x-handlebars-template")
+            | {{#if items}}
+            | {{#each items}}
+            div(class="reviews-list__elem")
+                p(class="reviews-list__elem-title")
+                    span(class="reviews-list__elem-title-name") {{ name }}
+                    span(class="reviews-list__elem-title-place") {{ place }}
+                    span(class="reviews-list__elem-title-date") {{ time }}
+                p(class="reviews-list__elem-description") {{ message }}
+            | {{/each}}
+
+            | {{else}}
+            p(class="reviews-list__empty") Отзывов пока нет...
+            | {{/if}}
+
+        script(id="elemTemplate" type="text/x-handlebars-template")
+            div(class="reviews-list__elem")
+                p(class="reviews-list__elem-title")
+                    span(class="reviews-list__elem-title-name") {{ name }}
+                    span(class="reviews-list__elem-title-place") {{ place }}
+                    span(class="reviews-list__elem-title-date") {{ time }}
+                p(class="reviews-list__elem-description") {{ message }}
+
+        script(src="./libs/libs.min.js")
+        script(src="./js/main.min.js")

@@ -1,0 +1,103 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Чат
+
+        link(href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700" rel="stylesheet")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+        link(href="./libs/libs.min.css" rel="stylesheet")
+        link(href="./css/main.min.css" rel="stylesheet")
+    body
+        include parts/header.pug
+
+        section(class="chat" id="chat")
+            aside(class="chat-panel")
+                div(class="user-profile")
+                    div(class="user-profile__avatar")
+                        img(src="./img/avatar.png" alt="avatar")
+                        p(class="user-profile__avatar-overlay")
+                            i(class="fas fa-user-plus")
+                    h3(class="user-profile__name" id="chatUserName")
+
+                div(class="users" id="chatPanel")
+
+            main(class="chat-area")
+                ul(class="message-list" id="messageList")
+                    li(class="message-list__elem message-elem")
+                        div(class="message-elem__avatar")
+                            img(src="./img/avatar.png" alt="avatar")
+                        div(class="message-elem__content")
+                            p(class="message-elem__header")
+                                span(class="message-elem__name") Asdf asdfasdf
+                                span(class="message-elem__time") 15:45
+                            p(class="message-elem__message")
+                                | asdfasdfasdfasdfsdfasdf
+                    li(class="message-list__elem message-elem")
+                        div(class="message-elem__avatar")
+                            img(src="./img/avatar.png" alt="avatar")
+                        div(class="message-elem__content")
+                            p(class="message-elem__header")
+                                span(class="message-elem__name") Asdf asdfasdf
+                                span(class="message-elem__time") 15:45
+                            p(class="message-elem__message")
+                                | asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf
+                                | asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdf asdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdfasdfasdfasdfasdfsdfasdf
+
+                form(action="#" class="message-form" id="messageForm" method="POST")
+                    input(class="message-form__input" id="messageInput" type="text" placeholder="Введите сообщение...")
+                    input(class="message-form__submit" type="submit" value="Отправить")
+
+        script(id="modalTemplate" type="text/x-handlebars-template")
+            div(class="modal-wrapper" id="modal")
+                div(class="modal-window")
+                    div(class="modal-window__header")
+                        p(class="modal-window__title") {{ windowName }}
+                    div(class="modal-window__body") {{{ windowBody }}}
+
+        script(id="authenticationTemplate" type="text/x-handlebars-template")
+            form(method="POST" class="authentication" id="auth")
+                input(id="fname" class="authentication__input" type="text" placeholder="Введите имя")
+                input(id="lname" class="authentication__input" type="text" placeholder="Введите фамилию")
+                input(class="authentication__submit btn-default" type="submit" value="Отправить")
+
+        script(id="avatarTemplate" type="text/x-handlebars-template")
+            div(class="drag-n-drop")
+                div(class="drag-n-drop__zone")
+                    div(class="drag-n-drop__drop-text")
+                        p(class="scale-inf") Drop here
+                    img(class="drag-n-drop__preview" src="./img/avatar.png" alt="avatar")
+                    input(type="file" id="imgUpload" style="display:none")
+                    button(class="drag-n-drop__add" type="button") Выберите файл
+                div(class="drag-n-drop__btn-group")
+                    button(type="button" class="drag-n-drop__btn btn-default" id="cancelBtnAvatar") Отмена
+                    button(type="button" class="drag-n-drop__btn btn-default" id="saveBtnAvatar") Сохранить
+
+        script(id="usersTemplate" type="text/x-handlebars-template")
+            h3(class="users__title") Участники
+                span(class="users__count") ({{ count }})
+            ul(class="users__list users-list")
+                | {{#each users}}
+                li(class="users-list__elem") {{ fullName  }}
+                | {{/each}}
+
+        script(id="messageTemplate" type="text/x-handlebars-template")
+            li(class="message-list__elem message-elem fade-in" data-message-id="{{ messageId }}" data-user-id="{{ userId }}")
+                div(class="message-elem__avatar")
+                    img(src="{{ avatar }}" alt="avatar")
+                div(class="message-elem__content")
+                    p(class="message-elem__header")
+                        span(class="message-elem__name") {{ fullName }}
+                        span(class="message-elem__time") {{ time }}
+                    p(class="message-elem__message") {{ message }}
+
+        div(class="hide")
+            div(class="highlight prepare")
+
+        include parts/footer.pug
+
+        script(src="./libs/libs.min.js")
+        script(src="./js/main.min.js")

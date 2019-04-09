@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Поиск и добавление cookies</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="homework-container">
+
+  <div id="filter-block">
+    Поиск cookie: <input type="text" id="filter-name-input" placeholder="имя cookie">
+  </div>
+
+  <div id="add-block">
+    Добавить cookie:<br>
+    <input type="text" id="add-name-input" placeholder="имя cookie"><br>
+    <input type="text" id="add-value-input" placeholder="значение cookie"><br>
+    <button id="add-button">добавить cookie</button>
+  </div>
+
+  <div id="list-block">
+    Доступные cookie:
+    <table id="list-table">
+      <thead>
+        <tr>
+          <th>имя</th>
+          <th>значение</th>
+          <th>удалить</th>
+        </tr>
+      </thead>
+      <tbody>
+      <!-- tr добавлять сюда -->
+      <tr>
+        <th>asdf</th>
+        <th>asdf</th>
+        <th>asdf</th>
+      </tr>
+      <tr>
+        <th>asdf</th>
+        <th>asdf</th>
+        <th>asdf</th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<script src="cookie.js"></script>
+</body>
+</html>

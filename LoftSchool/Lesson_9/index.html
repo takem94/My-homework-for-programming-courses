@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Основная страница</title>
+  <link rel="stylesheet" href="http://localhost:3005/main.css">
+</head>
+<body>
+<div class="container">
+  <div class="files">
+    <h2>Список файлов:</h2>
+    <div id="result"></div>
+  </div>
+</div>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', load);
+
+    let data = {path: window.location.pathname };
+    let resultArea = document.getElementById('result');
+    
+    function load() {
+      fetch('http://localhost:3005/getDirContent', {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data) // data can be `string` or {object}!
+      }).then(data => {
+        return data.json();
+      }).then(data => {
+        if (!data.error)
+          resultArea.appendChild(renderList(data, ''));
+      });
+    }
+
+    function renderList(data, pref) {
+      let res = document.createElement('ul');
+
+      data.forEach(elem => {
+        let li = document.createElement('li');
+
+        let size = document.createElement('span');
+        size.innerText = elem.sizeKb;
+
+        res.appendChild(li);
+
+        if (elem.type === 'directory') {
+          let link = document.createElement('a');
+          let name = elem.name.length > 1 ?  elem.name.split('/').reverse()[0] : elem.name ;
+
+          link.setAttribute('href', 'http://localhost:3005/' + elem.path);
+          link.innerText = pref + ' ' + name;
+
+          li.appendChild(link);
+          
+          let liWrap = document.createElement('li');
+          liWrap.classList.add('li-wrap');
+          liWrap.appendChild(renderList(elem.subFiles, (pref + '—')));
+
+          res.appendChild(liWrap);
+        } else if (elem.type === 'file') {
+          li.innerText = pref + ' ' + elem.name;
+        }
+
+        li.appendChild(size);
+      });
+
+      return res;
+    }
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+@import "vars";
+@import "fonts";
+// Sprites for png and svg
+@import "sprite";
+@import "sprite-svg";
+
+body, html {
+  height: 100%;
+  background-color: #999999;
+}
+
+.hide {
+  position: absolute !important;
+  z-index: -999 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &-canvas {
+    height: 100%;
+    width: 100%;
+  }
+
+  &-navigate {
+    position: absolute;
+    box-sizing: border-box;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    &__btn {
+      border: none;
+      background-color: $primary-color;
+      color: white;
+      font-family: $main-font;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:first-child {
+        margin-right: 5px;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        background-color: rgba(255, 134, 99, 0.8);
+      }
+    }
+  }
+
+
+}
+
+
+.cross {
+  position: relative;
+  height: 100%;
+  width: 14px;
+  transition: transform .3s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::before, &::after {
+    top: 50%;
+    left: 50%;
+    height: 16px;
+    width: 4px;
+    background-color: white;
+    position: absolute;
+    content: '';
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    border-radius: 5px;
+    transition: background-color .3s;
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+
+  &_rotate {
+    transform: rotate(-45deg);
+  }
+
+  &_silver {
+    &::before, &::after {
+      background-color: $primary-dark-silver;
+    }
+  }
+}
+
+.review-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 380px;
+  height: 530px;
+  border-radius: 10px;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    position: relative;
+    background-color: $primary-color;
+    color: #fff;
+    font-family: $main-font;
+    font-size: 12px;
+    font-weight: 300;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 13px 0 15px;
+
+    &-title {
+      position: relative;
+      overflow: hidden;
+      width: 85%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 2px;
+
+      i {
+        font-size: 11px;
+      }
+
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    &-close {
+      align-self: center;
+
+      &:hover::after, &:hover::before {
+        background-color: red;
+      }
+    }
+  }
+
+  &__body {
+
+    &-reviews {
+      margin: 15px 15px 0 15px;
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      padding: 15px 15px 0 15px;
+      font-family: $main-font;
+
+      &-title {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $primary-color;
+      }
+
+      &-name, &-place, &-message {
+        box-sizing: border-box;
+        margin-top: 15px;
+        border: 1px solid #c4c4c4;
+        height: 34px;
+        border-radius: 16px;
+        padding: 0 15px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          color: #9f9f9f;
+        }
+      }
+
+      &-message {
+        height: 123px;
+        padding-top: 10px;
+        resize: none;
+      }
+
+      &-wrapper {
+        margin-top: 15px;
+      }
+
+      &-btn {
+        box-sizing: border-box;
+        display: block;
+        margin-left: auto;
+        width: 87px;
+        height: 30px;
+        background-color: #ff8663;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        font-size: 12px;
+        font-family: $main-font;
+        transition: opacity .3s;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.reviews-list {
+  height: 140px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid $primary-silver;
+
+  &__empty {
+    font-family: $main-font;
+    margin: 0;
+  }
+
+  &__elem {
+    font-family: $main-font;
+    padding-bottom: 24px;
+
+    &-title {
+      display: flex;
+      color: #4f4f4f;
+      font-size: 14px;
+      font-weight: 300;
+      margin: 0 0 10px 0;
+      width: 100%;
+
+      &-name {
+        max-width: 35%;
+        font-weight: 700;
+      }
+
+      &-place {
+        max-width: 25%;
+        margin-left: 8px;
+      }
+
+      &-date {
+        margin-left: auto;
+        margin-right: 4px;
+      }
+
+      span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+      }
+    }
+
+    &-description {
+      margin: 0;
+      font-size: 15px;
+      word-wrap: break-word;
+    }
+
+  }
+}

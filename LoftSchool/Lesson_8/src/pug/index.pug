@@ -1,0 +1,124 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Пример MVC и VK Api
+
+        link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet")
+        link(href="./libs/libs.min.css" rel="stylesheet")
+        link(href="./css/simplebar.min.css" rel="stylesheet")
+        link(href="./css/main.min.css" rel="stylesheet")
+
+        script(src="https://vk.com/js/api/openapi.js?160" type="text/javascript")
+    body
+        include parts/header.pug
+
+        div(class="container")
+            div(id="header")
+            div(class="btn-group-wrap")
+                div(class="btn-group btn-group-lg text-center")
+                    button(type="button" class="btn btn-default" data-vk-method="friends") Друзья
+                    button(type="button" class="btn btn-default" data-vk-method="news") Новости
+                    button(type="button" class="btn btn-default" data-vk-method="groups") Группы
+                    button(type="button" class="btn btn-default" data-vk-method="photos") Фото
+            hr
+            div(id="results")
+
+        include parts/footer.pug
+
+        script(type="text/x-handlebars-template" id="headerTemplate")
+            h1 Данные из VK-аккаунта: {{first_name}} {{last_name}}
+
+        script(type="text/x-handlebars-template" id="friendsTemplate")
+            div(id="friendsList row")
+            | {{#each items}}
+            div(class="friend text-center col-md-2")
+                img(src="{{photo_100}}" class="img-circle")
+                div {{first_name}}
+                    br
+                    | {{last_name}}
+            | {{/each}}
+
+
+        script(type="text/x-handlebars-template" id="newsTemplate")
+            div(class="news")
+            | {{#each list}}
+            | {{#if text}}
+            div(class="post")
+                b {{formatDate date}}
+                div(class="post-text") {{{text}}}
+            hr
+            | {{/if}}
+            | {{/each}}
+
+        script(type="text/x-handlebars-template" id="groupsTemplate")
+            div(id="groupsList row")
+            | {{#each items}}
+            div(class="text-center col-md-2")
+                div(class="group")
+                    div(class="group__img")
+                        img(src="{{photo_200}}")
+                        div(class="group__name")
+                            span {{name}}
+            | {{/each}}
+
+        script(type="text/x-handlebars-template" id="photosTemplate")
+
+            div(id="photosList row")
+                div(class="col-md-12 col-sd-12")
+                    div(class="sort")
+                        p(class="sort__title") Сортирова по:
+                        div(class="sort__buttons")
+                            button(data-sort-by="date" class="sort__button sort__button_active") дате
+                            button(data-sort-by="likes" class="sort__button") лайкам
+                            button(data-sort-by="reposts" class="sort__button") репостам
+                            button(data-sort-by="comments" class="sort__button") комментариям
+                | {{#each items}}
+                div(class="col-xs-12")
+                    div(class="album")
+                        p(class="album__title") {{title}}
+                        div(class="album__photos-wrapper")
+                            div(class="row")
+                                | {{#each items}}
+                                div(class="text-center col-md-4")
+                                    div(class="photos")
+                                        div(class="photos__img")
+                                            img(src="{{photo_300}}")
+                                        div(class="photos__comments-wrapper")
+                                            div(class="photos__stats")
+                                                span Likes: {{ likes.count }}
+                                                span Reposts: {{ reposts.count }}
+                                                span Comments: {{ comments.count }}
+                                            button(class="photos__comments" data-count="{{comments.count}}" data-status-btn="false" data-id-photo="{{ id }}") Показать комментарии
+                                            ul(class="photos__list photos__list_hidden")
+                                | {{/each}}
+                | {{/each}}
+
+        script(type="text/x-handlebars-template" id="commentsTemplate")
+            | {{#each items}}
+            li(class="photos__elem")
+                img(src="{{photo_50}}" alt="avatar" class="img-circle")
+                div(class="photos__elem-wrapper")
+                    p(class="photos__elem-full-name") {{ full_name }}
+                    p(class="photos__elem-message") {{ text }}
+                    span(class="photos__elem-date") {{ formatDate date }}
+            | {{/each}}
+
+        script(type="text/x-handlebars-template" id="loaderTemplate")
+            div(class="lds-wrapper")
+                div(class="lds-roller")
+                    div
+                    div
+                    div
+                    div
+                    div
+                    div
+                    div
+                    div
+
+        script(src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js")
+        script(src="./libs/libs.min.js")
+        script(src="./js/main.min.js")
