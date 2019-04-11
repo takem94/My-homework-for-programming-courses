@@ -10,3 +10,7 @@ The most comprehensive and comprehensive course on native JavaScript, designed t
 - Workflow of a modern JavaScript developer (**Gulp, browserify, modules, Babel** and other).
 - Work with the **API** of the most popular russian social networks and geolocation services (**Vk, Yandex Maps**).
 - Understanding and experience with server-side JavaScript using the example of **Node.js**.
+
+## Explain for structure of homework directories
+Every directory which name has start from "Lesson" - contains completed homework example. The lessons from 01-06 have subdirectory src, tests and coverage, the last one contains the results of test. The homework description is included with the solution file. (src/index.js) (not translated). 
+
